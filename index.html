@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Game Arcade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>JS Game Arcade</h1>
+    <input type="text" id="search-bar" placeholder="Search games..." />
+  </header>
+
+  <section id="player-container" class="hidden">
+    <div class="player-header">
+      <h2 id="active-game-title">Game Title</h2>
+      <button id="close-game">Close Game ✖</button>
+    </div>
+    <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <main id="game-grid"></main>
+
+  <script src="games.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
