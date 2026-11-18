@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Target Blaster</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0f172a;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+    }
+    #hud { font-size: 1.4rem; margin-bottom: 12px; }
+    #arena {
+      position: relative;
+      width: 90vw;
+      max-width: 600px;
+      height: 360px;
+      background: #1e293b;
+      border: 2px solid #38bdf8;
+      border-radius: 10px;
+    }
+    #target {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      background: #f43f5e;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+    }
+    button {
+      margin-top: 14px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #38bdf8;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">Score: <span id="score">0</span> | Time: <span id="time">15</span>s</div>
+  <div id="arena"><div id="target"></div></div>
+  <button id="start-btn">Start Game</button>
+
+  <script>
+    const arena = document.getElementById("arena");
+    const target = document.getElementById("target");
+    const scoreEl = document.getElement
