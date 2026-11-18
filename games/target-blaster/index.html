@@ -56,4 +56,48 @@
   <script>
     const arena = document.getElementById("arena");
     const target = document.getElementById("target");
-    const scoreEl = document.getElement
+    const scoreEl = document.getElementById("score");
+    const timeEl = document.getElementById("time");
+    const startBtn = document.getElementById("start-btn");
+
+    let score = 0;
+    let timeLeft = 15;
+    let timer = null;
+
+    function moveTarget() {
+      const maxX = arena.clientWidth - target.offsetWidth;
+      const maxY = arena.clientHeight - target.offsetHeight;
+      target.style.left = Math.floor(Math.random() * maxX) + "px";
+      target.style.top = Math.floor(Math.random() * maxY) + "px";
+    }
+
+    target.addEventListener("click", () => {
+      score++;
+      scoreEl.textContent = score;
+      moveTarget();
+    });
+
+    startBtn.addEventListener("click", () => {
+      clearInterval(timer);
+      score = 0;
+      timeLeft = 15;
+      scoreEl.textContent = score;
+      timeEl.textContent = timeLeft;
+      target.style.display = "block";
+      startBtn.disabled = true;
+      moveTarget();
+
+      timer = setInterval(() => {
+        timeLeft--;
+        timeEl.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          target.style.display = "none";
+          startBtn.disabled = false;
+          startBtn.textContent = "Play Again";
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
